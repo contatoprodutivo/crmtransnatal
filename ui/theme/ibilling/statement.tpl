@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="description" class="col-sm-3 control-label">{$_L['Account']}</label>
                             <div class="col-sm-9">
-                                <select id="account" name="account">
+                                <select id="account" name="account" class="form-control">
                                     <option value="">{$_L['Choose an Account']}</option>
                                     {foreach $d as $ds}
                                         <option value="{$ds['account']}">{$ds['account']}</option>
@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label for="fdate" class="col-sm-3 control-label">{$_L['From Date']}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  value="{$tdate}" name="fdate" id="fdate" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true">
+                                <input type="date" class="form-control"  value="{$tdate}" name="fdate" id="fdate" data-auto-close="true">
 
                             </div>
                         </div>
@@ -38,7 +38,8 @@
                         <div class="form-group">
                             <label for="tdate" class="col-sm-3 control-label">{$_L['To Date']}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  value="{$mdate}" name="tdate" id="tdate" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true">
+                                <input type="date" class="form-control"  value="{$mdate}" name="tdate" id="tdate" datepicker  data-auto-close="true">
+
 
                             </div>
                         </div>

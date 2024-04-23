@@ -30,7 +30,8 @@
                         <div class="form-group">
                             <label for="date" class="col-sm-3 control-label">{$_L['Date']}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  value="{$mdate}" name="date" id="date" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true">
+                               <input type="date" class="form-control" value="{$mdate|date_format:"Y-m-d"}" name="date" id="date">
+
                             </div>
                         </div>
 
@@ -77,7 +78,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
+                           
+                          
+                            
+                             <div class="form-group">
                                 <label for="tags" class="col-sm-3 control-label">{$_L['Tags']}</label>
                                 <div class="col-sm-9">
                                     <select name="tags[]" id="tags"  class="form-control" multiple="multiple">
@@ -89,33 +93,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-3 control-label">{$_L['Payer']}</label>
-                                <div class="col-sm-9">
-                                    <select id="payer" name="payer" class="form-control">
-                                        <option value="">{$_L['Choose Contact']}</option>
-                                        {foreach $p as $ps}
-                                            <option value="{$ps['id']}">{$ps['account']}</option>
-                                        {/foreach}
-
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-3 control-label">{$_L['Method']}</label>
-                                <div class="col-sm-9">
-                                    <select id="pmethod" name="pmethod" class="form-control">
-                                        <option value="">{$_L['Select Payment Method']}</option>
-                                        {foreach $pms as $pm}
-                                            <option value="{$pm['name']}">{$pm['name']}</option>
-                                        {/foreach}
-
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}#</label>
+                                <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="ref" name="ref">
                                     <span class="help-block">{$_L['ref_example']}</span>

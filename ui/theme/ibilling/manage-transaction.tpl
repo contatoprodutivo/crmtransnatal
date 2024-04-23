@@ -28,7 +28,9 @@
                         <div class="form-group">
                             <label for="date" class="col-sm-3 control-label">{$_L['Date']}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  value="{$t['date']}" name="date" id="date" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true">
+                                <input type="date" class="form-control"  value="{$t['date']}" name="date" id="date" data-auto-close="true">
+                               
+
                             </div>
                         </div>
 
@@ -87,35 +89,9 @@
                         </div>
                         <div id="a_hide">
                             {if $t['type'] eq 'Income'}
-                                <div class="form-group">
-                                    <label for="payer" class="col-sm-3 control-label">{$_L['Payer']}</label>
-                                    <div class="col-sm-9">
-                                        <select id="payer" name="payer" class="s2 form-control">
-                                            <option value="">{$_L['Choose Contact']}</option>
-                                            {foreach $p as $ps}
-                                                <option value="{$ps['id']}" {if ($t['payerid']) eq ($ps['id'])}selected="selected" {/if}>{$ps['account']}</option>
-                                            {/foreach}
-
-
-                                        </select>
-                                        <input type="hidden" name="payee" id="payee" value="0">
-                                    </div>
-                                </div>
+                             
                             {else}
-                                <div class="form-group">
-                                    <label for="payee" class="col-sm-3 control-label">{$_L['Payee']}</label>
-                                    <div class="col-sm-9">
-                                        <select id="payee" name="payee" class="s2 form-control">
-                                            <option value="">{$_L['Choose Contact']}</option>
-                                            {foreach $p as $ps}
-                                                <option value="{$ps['id']}" {if ($t['payeeid']) eq ($ps['id'])}selected="selected" {/if}>{$ps['account']}</option>
-                                            {/foreach}
-
-
-                                        </select>
-                                        <input type="hidden" name="payer" id="payer" value="0">
-                                    </div>
-                                </div>
+                               
                             {/if}
                             <div class="form-group">
                                 <label for="pmethod" class="col-sm-3 control-label">{$_L['Method']}</label>

@@ -44,11 +44,11 @@
                             </div></div>
 
 
-                        <div class="col-md-8">
+                       <div class="col-md-8">
 
 
                             <div class="chart-container">
-                                <div class="" style="height:350px" id="inc_vs_exp_t"></div>
+                                <div id="d_chart" style="height: 350px;"></div>
                             </div>
 
                         </div>
@@ -63,17 +63,7 @@
 
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="ibox float-e-margins">
-
-                <div class="ibox-content">
-                    <div id="d_chart" style="height: 350px;"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+  
 
 
     <div class="row" id="sort_2">
@@ -133,7 +123,7 @@
     <div class="row" id="sort_4">
 
 
-        <div class="col-md-12">
+     <!--   <div class="col-md-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <a href="{$_url}invoices/list/" class="btn btn-primary btn-xs pull-right"><i class="fa fa-list"></i> {$_L['Invoices']}</a>
@@ -256,7 +246,7 @@
         </div>
 
 
-    </div>
+    </div> -->
 
 
 {/block}

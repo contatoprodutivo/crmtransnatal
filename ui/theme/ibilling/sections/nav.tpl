@@ -30,6 +30,21 @@
         <li {if $_application_menu eq 'dashboard'}class="active"{/if}><a href="{$_url}{$_c['redirect_url']}/"><i class="fa fa-tachometer"></i> <span class="nav-label">{$_L['Dashboard']}</span></a></li>
     {/if}
 
+{if has_access($user->roleid,'bank_n_cash')}
+        {if $_c['accounting'] eq '1'}
+            <li class="{if $_application_menu eq 'accounts'}active{/if}">
+                <a href="#"><i class="fa fa-university"></i> <span class="nav-label">{$_L['Bank n Cash']}</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="{$_url}accounts/add/">{$_L['New Account']}</a></li>
+
+                    <li><a href="{$_url}accounts/list/">{$_L['List Accounts']}</a></li>
+                    <li><a href="{$_url}accounts/balances/">{$_L['Account_Balances']}</a></li>
+
+                </ul>
+            </li>
+        {/if}
+
+    {/if}
 
 
 
@@ -67,11 +82,18 @@
             <li class="{if $_application_menu eq 'transactions'}active{/if}">
                 <a href="#"><i class="fa fa-database"></i> <span class="nav-label">{$_L['Transactions']}</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+            
                     <li><a href="{$_url}transactions/deposit/">{$_L['New Deposit']}</a></li>
                     <li><a href="{$_url}transactions/expense/">{$_L['New Expense']}</a></li>
-                    <li><a href="{$_url}transactions/transfer/">{$_L['Transfer']}</a></li>
+                    <br>
+                    
                     <li><a href="{$_url}transactions/list/">{$_L['View Transactions']}</a></li>
                     <li><a href="{$_url}generate/balance-sheet/">{$_L['Balance Sheet']}</a></li>
+                    <br>
+                        <li><a href="{$_url}settings/income-categories/">{$_L['Income Categories']}</a></li>
+                        
+                 <li><a href="{$_url}settings/expense-categories/">{$_L['Expense Categories']}</a></li>
+                 <li><a href="{$_url}settings/pmethods/">{$_L['Payment Methods']}</a></li>
                 </ul>
             </li>
         {/if}
@@ -133,33 +155,13 @@
 
 
 
-    {if has_access($user->roleid,'documents')}
-        <li {if $_application_menu eq 'documents'}class="active"{/if}><a href="{$_url}documents/"><i class="fa fa-file-o"></i> <span class="nav-label">{$_L['Documents']}</span></a></li>
-    {/if}
-
-    {if has_access($user->roleid,'calendar')}
-        <li {if $_application_menu eq 'calendar'}class="active"{/if}><a href="{$_url}calendar/events/"><i class="fa fa-calendar"></i> <span class="nav-label">{$_L['Calendar']}</span></a></li>
-    {/if}
+ 
 
 
 
     {$admin_extra_nav[4]}
 
-    {if has_access($user->roleid,'bank_n_cash')}
-        {if $_c['accounting'] eq '1'}
-            <li class="{if $_application_menu eq 'accounts'}active{/if}">
-                <a href="#"><i class="fa fa-university"></i> <span class="nav-label">{$_L['Bank n Cash']}</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="{$_url}accounts/add/">{$_L['New Account']}</a></li>
-
-                    <li><a href="{$_url}accounts/list/">{$_L['List Accounts']}</a></li>
-                    <li><a href="{$_url}accounts/balances/">{$_L['Account_Balances']}</a></li>
-
-                </ul>
-            </li>
-        {/if}
-
-    {/if}
+    
 
 
     {$admin_extra_nav[5]}
@@ -195,15 +197,7 @@
 
 
                 <li><a href="{$_url}reports/statement/">{$_L['Account Statement']}</a></li>
-                <li><a href="{$_url}reports/income/">{$_L['Income Reports']}</a></li>
-                <li><a href="{$_url}reports/expense/">{$_L['Expense Reports']}</a></li>
-                <li><a href="{$_url}reports/income-vs-expense/">{$_L['Income Vs Expense']}</a></li>
-
-                <li><a href="{$_url}reports/by-date/">{$_L['Reports by Date']}</a></li>
-                {*<li><a href="{$_url}reports/cats/">{$_L['Reports by Category']}</a></li>*}
-                <li><a href="{$_url}transactions/list-income/">{$_L['All Income']}</a></li>
-                <li><a href="{$_url}transactions/list-expense/">{$_L['All Expense']}</a></li>
-                <li><a href="{$_url}transactions/list/">{$_L['All Transactions']}</a></li>
+               
 
 
                 {foreach $sub_menu_admin['reports'] as $sm_report}
@@ -218,6 +212,13 @@
             </li>
 
         {/if}
+           {if has_access($user->roleid,'documents')}
+        <li {if $_application_menu eq 'documents'}class="active"{/if}><a href="{$_url}documents/"><i class="fa fa-file-o"></i> <span class="nav-label">{$_L['Documents']}</span></a></li>
+    {/if}
+
+    {if has_access($user->roleid,'calendar')}
+        <li {if $_application_menu eq 'calendar'}class="active"{/if}><a href="{$_url}calendar/events/"><i class="fa fa-calendar"></i> <span class="nav-label">{$_L['Calendar']}</span></a></li>
+    {/if}
 
     {/if}
 
@@ -226,6 +227,15 @@
         <li class="{if $_application_menu eq 'util'}active{/if}">
             <a href="#"><i class="icon-article"></i> <span class="nav-label">{$_L['Utilities']} </span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
+             <li><a href="{$_url}reports/income/">{$_L['Income Reports']}</a></li>
+                <li><a href="{$_url}reports/expense/">{$_L['Expense Reports']}</a></li>
+                <li><a href="{$_url}reports/income-vs-expense/">{$_L['Income Vs Expense']}</a></li>
+
+                <li><a href="{$_url}reports/by-date/">{$_L['Reports by Date']}</a></li>
+                {*<li><a href="{$_url}reports/cats/">{$_L['Reports by Category']}</a></li>*}
+                <li><a href="{$_url}transactions/list-income/">{$_L['All Income']}</a></li>
+                <li><a href="{$_url}transactions/list-expense/">{$_L['All Expense']}</a></li>
+                <li><a href="{$_url}transactions/list/">{$_L['All Transactions']}</a></li>
                 <li><a href="{$_url}util/activity/">{$_L['Activity Log']}</a></li>
                 <li><a href="{$_url}util/sent-emails/">{$_L['Email Message Log']}</a></li>
                 <li><a href="{$_url}util/dbstatus/">{$_L['Database Status']}</a></li>
@@ -274,6 +284,7 @@
                 <li><a href="{$_url}settings/app/">{$_L['General Settings']}</a></li>
                 <li><a href="{$_url}settings/users/">{$_L['Staff']}</a></li>
                 <li><a href="{$_url}settings/roles/">{$_L['Roles']}</a></li>
+                <li><a href="{$_url}transactions/transfer/">{$_L['Transfer']}</a></li>
 
                 <li><a href="{$_url}settings/localisation/">{$_L['Localisation']}</a></li>
                 <li><a href="{$_url}settings/currencies/">{$_L['Currencies']}</a></li>
@@ -281,10 +292,10 @@
                 <li><a href="{$_url}settings/pg/">{$_L['Payment Gateways']}</a></li>
 
                 {if $_c['accounting'] eq '1'}
-                    <li><a href="{$_url}settings/expense-categories/">{$_L['Expense Categories']}</a></li>
-                    <li><a href="{$_url}settings/income-categories/">{$_L['Income Categories']}</a></li>
+                   
+                    
                     <li><a href="{$_url}settings/tags/">{$_L['Manage Tags']}</a></li>
-                    <li><a href="{$_url}settings/pmethods/">{$_L['Payment Methods']}</a></li>
+                    
                     <li><a href="{$_url}tax/list/">{$_L['Sales Taxes']}</a></li>
                 {/if}
 

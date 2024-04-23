@@ -77,17 +77,6 @@ License: You must have a valid license in order to legally use this Software.
 
 
 
-                        <li class="hidden-xs">
-                            <form class="navbar-form full-width" method="post" action="{$_url}contacts/list/">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="{$_L['Search Customers']}...">
-                                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </li>
-
-
-
 
                         {if has_access($user->roleid,'utilities')}
 
