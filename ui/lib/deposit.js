@@ -54,9 +54,8 @@ $(document).ready(function () {
     //$('.amount').autoNumeric('init');
     $("#a_hide").hide();
     $("#emsg").hide();
-    $("#a_toggle").click(function(e){
-        e.preventDefault();
-        $("#a_hide").toggle( "slow" );
+  $(document).ready(function() {
+        $("#a_hide").show();
     });
     /*
     * File upload

@@ -298,12 +298,57 @@ switch ($action) {
         $pmethod = _post('pmethod');
         $cat = _post('cats');
         $tags = $_POST['tags'];
+        $qtd_litro = _post('qtd_litro');
+        $qtd_litro = str_replace(',', '.', _post('qtd_litro'));
+        $qtd_litro = floatval($qtd_litro);
+        $nome_do_motorista = _post('nome_do_motorista');
+
+        //novos campos
+        $data_saida = _post('data_saida'); 
+        $data_chegada = _post('data_chegada');
+        $valor_litro = _post('valor_litro');
+        $valor_total = _post('valor_total');
+        $km = isset($_POST['km']) ? $_POST['km'] : '0';
+
+
+        // Converta os valores decimais adequadamente, se necessário
+        $valor_litro = floatval(str_replace(',', '.', $valor_litro));
+        $valor_total = floatval(str_replace(',', '.', $valor_total));
+        $km = floatval(str_replace(',', '.', $km));
+        
+
+
 
         $attachments = _post('attachments');
+
+        error_log(print_r($_POST, true));
+
+
+       // Verifica se a data de saída está vazia e valida o formato apenas se ela for fornecida
+if (!empty($data_saida) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_saida)) {
+    error_log("Data de Saída inválida: " . $data_saida);
+    // Adicione o código para tratar o erro conforme necessário
+} else if (empty($data_saida)) {
+    $data_saida = null;  // Define como null para salvar no banco de dados, se o banco aceitar null
+}
+
+      // Verifica se a data de chegada está vazia e valida o formato apenas se ela for fornecida
+      if (!empty($data_chegada) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_chegada)) {
+        error_log("Data de Chegada inválida: " . $data_chegada);
+        // Adicione o código para tratar o erro conforme necessário
+    } else if (empty($data_chegada)) {
+        $data_chegada = null;  // Define como null para salvar no banco de dados, se o banco aceitar null
+    }
+    
 
         if (!is_numeric($payee)) {
             $payee = '0';
         }
+        if (!is_numeric($qtd_litro)) {
+            $msg .= "Quantidade em litros inválida.<br>";
+        }
+        
+       
 
         $description = _post('description');
         $msg = '';
@@ -331,7 +376,7 @@ switch ($action) {
             $a->balance = $nbal;
             $a->save();
             $d = ORM::for_table('sys_transactions')->create();
-            $d->account = $account;
+            $d->account = $account;            
             $d->type = 'Expense';
             $d->payeeid = $payee;
             $d->tags = Arr::arr_to_str($tags);
@@ -339,6 +384,15 @@ switch ($action) {
             $d->category = $cat;
             $d->method = $pmethod;
             $d->ref = $ref;
+
+            // Adicionando novos campos
+            $d->qtd_litro = $qtd_litro;
+            $d->nome_do_motorista = $nome_do_motorista;
+            $d->data_saida = $data_saida;
+            $d->data_chegada = $data_chegada;
+            $d->valor_litro = $valor_litro;
+            $d->valor_total = $valor_total;
+            $d->km = $km;
 
             $d->description = $description;
             // Build 4560
@@ -872,6 +926,7 @@ switch ($action) {
                 $d->payerid = $payer;
                 $d->payeeid = $payee;
                 $d->method = $pmethod;
+                $d->qtd_litro = $qtd_litro;
                 $d->ref = $ref;
                 $d->tags = Arr::arr_to_str($tags);
                 $d->description = $description;

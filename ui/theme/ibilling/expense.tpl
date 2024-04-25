@@ -3,7 +3,7 @@
 
 {block name="content"}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>{$_L['Add Expense']}</h5>
@@ -44,29 +44,19 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control amount" id="amount" name="amount">
-                            </div>
-                        </div>
-
-
-
-
-
+                    
 
                         <div class="form-group">
-                            <div class="col-sm-3">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-9">
-                                <h4><a href="#" id="a_toggle">{$_L['Advanced']}</a> </h4>
-                            </div>
-                        </div>
-                        <div id="a_hide">
-                            <div class="form-group">
-                                <label for="cats" class="col-sm-3 control-label">{$_L['Category']}</label>
+    <label for="amount" class="col-sm-3 control-label">Valor da saída</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="Valor da saída">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+                                <label for="cats" class="col-sm-3 control-label">Despesas Operacionais</label>
                                 <div class="col-sm-9">
                                     <select id="cats" name="cats" class="form-control">
                                         <option value="Uncategorized">{$_L['Uncategorized']}</option>
@@ -78,8 +68,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="pmethod" class="col-sm-3 control-label">{$_L['Method']}</label>
+
+                                   <div class="form-group">
+                                <label for="pmethod" class="col-sm-3 control-label">Categorias de despesas</label>
                                 <div class="col-sm-9">
                                     <select id="pmethod" name="pmethod" class="form-control">
                                         <option value="">{$_L['Select Payment Method']}</option>
@@ -91,6 +82,9 @@
                                     </select>
                                 </div>
                             </div>
+
+
+
                             <div class="form-group">
                                 <label for="tags" class="col-sm-3 control-label">{$_L['Tags']}</label>
                                 <div class="col-sm-9">
@@ -102,15 +96,96 @@
                                     </select>
                                 </div>
                             </div>
-                           
-                            
-                            <div class="form-group">
+
+
+                             <div class="form-group">
                                 <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="ref" name="ref">
                                     <span class="help-block">{$_L['ref_example']}</span>
                                 </div>
                             </div>
+
+
+
+                    
+                           <div class="form-group">
+                            <div class="col-sm-3">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-9">
+                                <h4><a href="#" id="a_toggle">{$_L['Advanced']}</a> </h4>
+                            </div>
+                        </div>
+                        <div id="a_hide">
+                            
+                            <div class="form-group">
+    <label for="nome_do_motorista" class="col-sm-3 control-label">Nome do Motorista</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="nome_do_motorista" name="nome_do_motorista" placeholder="Nome do Motorista">
+    </div>
+</div>
+
+                            
+       
+
+<div class="form-group">
+    <label for="data_saida" class="col-sm-3 control-label">Data de Saída</label>
+    <div class="col-sm-9">
+        <input type="date" class="form-control" id="data_saida" name="data_saida">
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label for="data_chegada" class="col-sm-3 control-label">Data de Chegada</label>
+    <div class="col-sm-9">
+        <input type="date" class="form-control" id="data_chegada" name="data_chegada">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="valor_litro" class="col-sm-3 control-label">Valor por Litro</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="valor_litro" name="valor_litro" placeholder="Valor por Litro">
+        </div>
+    </div>
+</div>
+   <div class="form-group">
+    <label for="qtd_litro" class="col-sm-3 control-label">Qtd. Litros</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="qtd_litro" name="qtd_litro" placeholder="Digite a quantidade em litros">
+    </div>
+</div>
+<div class="form-group">
+    <label for="valor_total" class="col-sm-3 control-label">Valor Total</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="valor_total" name="valor_total" placeholder="Valor Total">
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="km" class="col-sm-3 control-label">Km</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km" name="km" placeholder="Quilometragem">
+    </div>
+</div>
+
+
+
+
+
+
+                            
+                     
+                           
+                            
+                           
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
@@ -124,7 +199,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>{$_L['Recent Expense']}</h5>

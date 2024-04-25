@@ -51,13 +51,14 @@ $(document).ready(function () {
     });
 
 
-    $("#a_hide").hide();
+  $("#a_hide").hide();
     $("#emsg").hide();
     $("#a_toggle").click(function(e){
         e.preventDefault();
         $("#a_hide").toggle( "slow" );
     });
     var _url = $("#_url").val();
+
 
 
 
@@ -134,7 +135,14 @@ $(document).ready(function () {
             tags: $('#tags').val(),
             payee: $('#payee').val(),
             pmethod: $('#pmethod').val(),
-            ref: $('#ref').val()
+            ref: $('#ref').val(), 
+            qtd_litro: $('#qtd_litro').val(),
+            nome_do_motorista: $('#nome_do_motorista').val(),
+            data_saida: $('#data_saida').val(),
+            data_chegada: $('#data_chegada').val(),
+            valor_litro: $('#valor_litro').val(),
+            valor_total: $('#valor_total').val(),
+            km: $('#km').val() 
 
         })
             .done(function (data) {

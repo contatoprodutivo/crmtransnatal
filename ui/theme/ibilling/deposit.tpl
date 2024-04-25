@@ -3,7 +3,7 @@
 {block name="content"}
 
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>{$_L['Add Deposit']}</h5>
@@ -43,27 +43,23 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control amount" id="amount" name="amount">
-                            </div>
-                        </div>
+                   
+
+                     <div class="form-group">
+    <label for="amount" class="col-sm-3 control-label">Valor da entrada</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="Valor da entrada">
+        </div>
+    </div>
+</div>
 
 
-
-
-
-
-                        <div class="form-group">
-                            <div class="col-sm-3">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-9">
-                                <h4><a href="#" id="a_toggle">{$_L['Advanced']}</a> </h4>
-                            </div>
-                        </div>
                         <div id="a_hide" class="form-horizontal" >
+
+                       
+                        
                             <div class="form-group">
                                 <label for="cats" class="col-sm-3 control-label">{$_L['Category']}</label>
                                 <div class="col-sm-9">
@@ -116,7 +112,7 @@
 
         </div>
 
-        <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>{$_L['Recent Deposits']}</h5>
