@@ -1,3 +1,4 @@
+
 <ul class="nav" id="side-menu">
 
     <li class="nav-header">
@@ -84,14 +85,10 @@
                 <ul class="nav nav-second-level">
             
                     <li><a href="{$_url}transactions/deposit/">{$_L['New Deposit']}</a></li>
-                    <li><a href="{$_url}transactions/expense/">{$_L['New Expense']}</a></li>
-                    <br>
-                    
+                    <li><a href="{$_url}transactions/expense/">{$_L['New Expense']}</a></li> 
                     <li><a href="{$_url}transactions/list/">{$_L['View Transactions']}</a></li>
-                    <li><a href="{$_url}generate/balance-sheet/">{$_L['Balance Sheet']}</a></li>
-                    <br>
-                        <li><a href="{$_url}settings/income-categories/">{$_L['Income Categories']}</a></li>
-                        
+                    <li><a href="{$_url}generate/balance-sheet/">{$_L['Balance Sheet']}</a></li>                    
+                   <li><a href="{$_url}settings/income-categories/">{$_L['Income Categories']}</a></li>                        
                  <li><a href="{$_url}settings/expense-categories/">{$_L['Expense Categories']}</a></li>
                  <li><a href="{$_url}settings/pmethods/">{$_L['Payment Methods']}</a></li>
                 </ul>
