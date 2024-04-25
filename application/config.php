@@ -1,7 +1,7 @@
 <?php
 $db_host	    = 'localhost';
-$db_user        = 'root';
-$db_password	= '';
-$db_name	    = 'crmtransnatal';
-define('APP_URL', 'http://localhost/crmtransnatal');
+$db_user        = 'u271859541_crmtransnatal';
+$db_password	= '~Ad4]OzW/';
+$db_name	    = 'u271859541_crmtransnatal';
+define('APP_URL', 'https://crmtransnatal.contatoprodutivo.com.br');
 $_app_stage = 'Live'; // You can set this variable Live to Dev to enable ibilling Debug
