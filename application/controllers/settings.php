@@ -15,7 +15,7 @@ $update_server = 'http://www.cloudonex.com/';
 switch ($action) {
     case 'expense-categories':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador') {
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -38,7 +38,7 @@ switch ($action) {
         break;
 
     case 'expense-categories-post':
-        if($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $name = _post('name');
@@ -71,7 +71,7 @@ switch ($action) {
     case 'income-categories':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
 
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador') {
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -95,7 +95,7 @@ switch ($action) {
         break;
 
     case 'income-categories-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador') {
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $name = _post('name');
@@ -126,7 +126,7 @@ switch ($action) {
 
     case 'categories-manage':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -140,7 +140,7 @@ switch ($action) {
         break;
 
     case 'categories-edit-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $id = _post('id');
@@ -188,7 +188,7 @@ switch ($action) {
         break;
 
     case 'categories-delete':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador') {
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $id = $routes[2];
@@ -230,7 +230,7 @@ switch ($action) {
 
     case 'payee':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -261,7 +261,7 @@ switch ($action) {
 
     case 'payee-manage':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -275,7 +275,7 @@ switch ($action) {
         break;
 
     case 'payee-edit-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -321,7 +321,7 @@ switch ($action) {
         break;
 
     case 'payee-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $name = _post('name');
@@ -352,7 +352,7 @@ switch ($action) {
         break;
 
     case 'payee-delete':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -374,7 +374,7 @@ switch ($action) {
     case 'payer':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
 
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $d = ORM::for_table('sys_payers')
@@ -404,7 +404,7 @@ switch ($action) {
 
     case 'payer-manage':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -418,7 +418,7 @@ switch ($action) {
         break;
 
     case 'payer-edit-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -464,7 +464,7 @@ switch ($action) {
         break;
 
     case 'payer-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -495,7 +495,7 @@ switch ($action) {
         break;
 
     case 'payer-delete':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -515,7 +515,7 @@ switch ($action) {
         break;
     case 'pmethods':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -539,7 +539,7 @@ switch ($action) {
 
     case 'pmethods-manage':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -553,7 +553,7 @@ switch ($action) {
         break;
 
     case 'pmethods-edit-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -599,7 +599,7 @@ switch ($action) {
         break;
 
     case 'pmethods-post':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -630,7 +630,7 @@ switch ($action) {
         break;
 
     case 'pmethods-delete':
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         if ($_app_stage == 'Demo') {
@@ -658,7 +658,7 @@ switch ($action) {
         $ai = $tblsts['Auto_increment'];
         $ui->assign('ai', $ai);
 
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $timezonelist = Timezone::timezoneList();
@@ -706,7 +706,7 @@ minHeight: 150 // pixels
     case 'features':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
 
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -734,7 +734,7 @@ minHeight: 150 // pixels
 
     case 'users':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         //        $ui->assign('xfooter', '
@@ -1621,7 +1621,7 @@ $(".cdelete").click(function (e) {
         $col = $tblsts['Collation'];
         $ui->assign('col', $col);
 
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
         $ui->assign('countries', Countries::all($config['country'])); // may add this $config['country_code']
@@ -1646,7 +1646,7 @@ $(".cdelete").click(function (e) {
 
     case 'emls':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -1682,7 +1682,7 @@ $( "#email_method" ).change(function() {
 
     case 'automation':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
@@ -1709,7 +1709,7 @@ $( "#email_method" ).change(function() {
 
     case 'pg':
         $ui->assign('content_inner', inner_contents($config['c_cache']));
-        if ($user['user_type'] != 'Admin' && $user['user_type'] != 'Operador'){
+        if ($user['user_type'] != 'Admin') {
             r2(U . "dashboard", 'e', $_L['You do not have permission']);
         }
 
