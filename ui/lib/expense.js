@@ -142,6 +142,7 @@ $(document).ready(function () {
             data_chegada: $('#data_chegada').val(),
             valor_litro: $('#valor_litro').val(),
             valor_total: $('#valor_total').val(),
+            obs: $('#obs').val(),
             km: $('#km').val() 
 
         })

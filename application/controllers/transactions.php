@@ -309,6 +309,8 @@ switch ($action) {
         $valor_litro = _post('valor_litro');
         $valor_total = _post('valor_total');
         $km = isset($_POST['km']) ? $_POST['km'] : '0';
+        $obs = _post('obs');
+
 
 
         // Converta os valores decimais adequadamente, se necessário
@@ -393,6 +395,7 @@ if (!empty($data_saida) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_saida)) {
             $d->valor_litro = $valor_litro;
             $d->valor_total = $valor_total;
             $d->km = $km;
+            $d->obs = $obs;
 
             $d->description = $description;
             // Build 4560
