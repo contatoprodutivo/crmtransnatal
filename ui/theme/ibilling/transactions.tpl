@@ -31,7 +31,8 @@
 
                             {foreach $d as $ds}
                                 <tr class="{if $ds['cr'] eq '0.00'}warning {else}info{/if}">
-                                <td class="text-right amount">{$ds['ref']}</td>
+                                <td>{$ds['ref']}</td>
+
                                     <td>{date( $_c['df'], strtotime($ds['date']))}</td>
                                     <td>{$ds['account']}</td>
 
@@ -56,8 +57,8 @@
 
                                    
 
-                                      <td class="text-right amount">{$ds['category']}</td>
-                                    <td class="text-right amount">{$ds['tags']}</td>
+                                      <td>{$ds['category']}</td>
+                                    <td>{$ds['tags']}</td>
                                     
 
                                     
