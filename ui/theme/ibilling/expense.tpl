@@ -204,7 +204,8 @@
                     <table class="table table-bordered sys_table">
                         <thead>
                         <tr>
-                            <th>{$_L['category']}</th>
+                            <th>Categoria</th>
+                            <th>{$_L['Description']}</th>
                             <th>{$_L['Amount']}</th>
 
                         </tr>
@@ -213,11 +214,12 @@
 
                         {foreach $tr as $trs}
                             <tr>
+                            <td>{$trs['category']}</td>
                                 <td><a href="{$_url}transactions/manage/{$trs['id']}">
                                         {if $trs['attachments'] neq ''}
                                             <i class="fa fa-paperclip"></i>
                                         {/if}
-                                        {$trs['category']}
+                                        {$trs['description']}
                                     </a> </td>
                                 <td class="amount">{$trs['amount']}</td>
                             </tr>
