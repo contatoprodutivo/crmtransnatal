@@ -204,7 +204,7 @@
                     <table class="table table-bordered sys_table">
                         <thead>
                         <tr>
-                            <th>{$_L['Description']}</th>
+                            <th>{$_L['category']}</th>
                             <th>{$_L['Amount']}</th>
 
                         </tr>
@@ -217,7 +217,7 @@
                                         {if $trs['attachments'] neq ''}
                                             <i class="fa fa-paperclip"></i>
                                         {/if}
-                                        {$trs['description']}
+                                        {$trs['category']}
                                     </a> </td>
                                 <td class="amount">{$trs['amount']}</td>
                             </tr>
