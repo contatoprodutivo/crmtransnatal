@@ -93,6 +93,13 @@
                                 </div>
                             </div>
 
+<div class="form-group">
+    <label for="obs" class="col-sm-3 control-label">Observações</label>
+    <div class="col-sm-9">
+        <textarea class="form-control" id="obs" name="obs" placeholder="{$_L['Enter Observations']}"></textarea>
+    </div>
+</div>
+
 
 
                     
