@@ -42,7 +42,7 @@
                                 <div class="help-block"><a data-toggle="modal" href="#modal_add_item"><i class="fa fa-paperclip"></i> {$_L['Attach File']}</a> </div>
                             </div>
                         </div>
-
+<!-- teste -->
                    
 
                      <div class="form-group">
