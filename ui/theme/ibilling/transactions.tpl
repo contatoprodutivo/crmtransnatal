@@ -12,21 +12,30 @@
                 <div class="ibox-content">
                     <div class="table-responsive">
                         <table class="table table-bordered sys_table">
+                        <th>Ref#</th>
                             <th>{$_L['Date']}</th>
                             <th>{$_L['Account']}</th>
+                             
                             <th>{$_L['Type']}</th>
 
                             <th class="text-right">{$_L['Amount']}</th>
 
                             <th>{$_L['Description']}</th>
-                            <th class="text-right">{$_L['Dr']}</th>
-                            <th class="text-right">{$_L['Cr']}</th>
-                            <th class="text-right">{$_L['Balance']}</th>
+                          
+                            <th>Categoria</th>
+                            <th>Tags</th>
+                            
                             <th>{$_L['Manage']}</th>
+
+                            
+
                             {foreach $d as $ds}
                                 <tr class="{if $ds['cr'] eq '0.00'}warning {else}info{/if}">
+                                <td class="text-right amount">{$ds['ref']}</td>
                                     <td>{date( $_c['df'], strtotime($ds['date']))}</td>
                                     <td>{$ds['account']}</td>
+
+                                    
                                     {*<td>{$ds['type']}</td>*}
                                     {* From v 2.4 Sadia Sharmin *}
 
@@ -44,10 +53,19 @@
 
                                     <td class="text-right amount">{$ds['amount']}</td>
                                     <td>{$ds['description']}</td>
-                                    <td class="text-right amount">{$ds['dr']}</td>
-                                    <td class="text-right amount">{$ds['cr']}</td>
-                                    <td class="text-right"><span class="amount{if $ds['bal'] < 0} text-red{/if}" >{$ds['bal']}</span></td>
+
+                                   
+
+                                      <td class="text-right amount">{$ds['category']}</td>
+                                    <td class="text-right amount">{$ds['tags']}</td>
+                                    
+
+                                    
                                     <td><a href="{$_url}transactions/manage/{$ds['id']}">{$_L['Manage']}</a></td>
+
+                                  
+                                    
+
                                 </tr>
                             {/foreach}
 

@@ -93,19 +93,7 @@
                             {else}
                                
                             {/if}
-                            <div class="form-group">
-                                <label for="pmethod" class="col-sm-3 control-label">{$_L['Method']}</label>
-                                <div class="col-sm-9">
-                                    <select id="pmethod" name="pmethod" class="form-control">
-
-                                        {foreach $pms as $pm}
-                                            <option value="{$pm['name']}" {if $pm['name'] eq $t['method']}selected="selected" {/if}>{$pm['name']}</option>
-                                        {/foreach}
-
-
-                                    </select>
-                                </div>
-                            </div>
+   
                             <div class="form-group">
                                 <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}#</label>
                                 <div class="col-sm-9">

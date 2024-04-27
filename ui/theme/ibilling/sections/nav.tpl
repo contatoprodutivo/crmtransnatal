@@ -33,6 +33,23 @@
 
 
 
+ {$admin_extra_nav[4]}
+
+    {if has_access($user->roleid,'bank_n_cash')}
+        {if $_c['accounting'] eq '1'}
+            <li class="{if $_application_menu eq 'accounts'}active{/if}">
+                <a href="#"><i class="fa fa-university"></i> <span class="nav-label">{$_L['Bank n Cash']}</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="{$_url}accounts/add/">{$_L['New Account']}</a></li>
+
+                    <li><a href="{$_url}accounts/list/">{$_L['List Accounts']}</a></li>
+                    
+
+                </ul>
+            </li>
+        {/if}
+
+    {/if}
 
 
 
@@ -62,24 +79,7 @@
 
     
 
-    {$admin_extra_nav[4]}
-
-    {if has_access($user->roleid,'bank_n_cash')}
-        {if $_c['accounting'] eq '1'}
-            <li class="{if $_application_menu eq 'accounts'}active{/if}">
-                <a href="#"><i class="fa fa-university"></i> <span class="nav-label">{$_L['Bank n Cash']}</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="{$_url}accounts/add/">{$_L['New Account']}</a></li>
-
-                    <li><a href="{$_url}accounts/list/">{$_L['List Accounts']}</a></li>
-                    
-
-                </ul>
-            </li>
-        {/if}
-
-    {/if}
-
+   
 
 
     
@@ -95,8 +95,7 @@
 
                 {if $_c['accounting'] eq '1'}
                  <li><a href="{$_url}settings/income-categories/">{$_L['Income Categories']}</a></li>
-                    <li><a href="{$_url}settings/expense-categories/">{$_L['Expense Categories']}</a></li>
-                    <li><a href="{$_url}settings/pmethods/">{$_L['Payment Methods']}</a></li>
+                    <li><a href="{$_url}settings/expense-categories/">{$_L['Expense Categories']}</a></li>                  
                     <li><a href="{$_url}settings/tags/">{$_L['Manage Tags']}</a></li>
                     
                    

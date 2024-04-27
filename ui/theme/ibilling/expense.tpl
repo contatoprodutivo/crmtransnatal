@@ -47,7 +47,7 @@
                     
 
                         <div class="form-group">
-    <label for="amount" class="col-sm-3 control-label">Valor da saída</label>
+    <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
     <div class="col-sm-9">
         <div class="input-group">
             <span class="input-group-addon">R$</span>
@@ -56,7 +56,7 @@
     </div>
 </div>
 <div class="form-group">
-                                <label for="cats" class="col-sm-3 control-label">Despesas Operacionais</label>
+                                <label for="cats" class="col-sm-3 control-label">{$_L['Category']}</label>
                                 <div class="col-sm-9">
                                     <select id="cats" name="cats" class="form-control">
                                         <option value="Uncategorized">{$_L['Uncategorized']}</option>
@@ -69,19 +69,6 @@
                                 </div>
                             </div>
 
-                                   <div class="form-group">
-                                <label for="pmethod" class="col-sm-3 control-label">Categorias de despesas</label>
-                                <div class="col-sm-9">
-                                    <select id="pmethod" name="pmethod" class="form-control">
-                                        <option value="">{$_L['Select Payment Method']}</option>
-                                        {foreach $pms as $pm}
-                                            <option value="{$pm['name']}">{$pm['name']}</option>
-                                        {/foreach}
-
-
-                                    </select>
-                                </div>
-                            </div>
 
 
 
@@ -99,7 +86,7 @@
 
 
                              <div class="form-group">
-                                <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}</label>
+                                <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}#</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="ref" name="ref">
                                     <span class="help-block">{$_L['ref_example']}</span>

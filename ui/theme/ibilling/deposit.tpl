@@ -46,7 +46,7 @@
                    
 
                      <div class="form-group">
-    <label for="amount" class="col-sm-3 control-label">Valor da entrada</label>
+    <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
     <div class="col-sm-9">
         <div class="input-group">
             <span class="input-group-addon">R$</span>
