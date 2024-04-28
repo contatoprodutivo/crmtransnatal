@@ -63,7 +63,7 @@
                 <ul class="nav nav-second-level">
                     <li><a href="{$_url}transactions/deposit/">{$_L['New Deposit']}</a></li>
                     <li><a href="{$_url}transactions/expense/">{$_L['New Expense']}</a></li>
-                    <li><a href="{$_url}transactions/list/">{$_L['View Transactions']}</a></li>
+                    
                     
                    
                 </ul>
