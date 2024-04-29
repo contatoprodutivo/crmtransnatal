@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label for="account" class="col-sm-3 control-label">{$_L['Account']}</label>
                             <div class="col-sm-9">
-                                <select id="account" name="account" class="form-control" disabled>
+                                <select id="account" name="account" class="form-control">
                                     {foreach $d as $ds}
                                         <option value="{$ds['account']}" {if $ds['account'] eq $t['account']}selected="selected" {/if}>{$ds['account']}</option>
                                     {/foreach}
@@ -41,12 +41,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control amount" id="amount"  data-a-sign="{$_c['currency_code']} " data-d-group="2" value="{$t['amount']}"  name="amount" disabled>
-                            </div>
-                        </div>
+              
+                                                <div class="form-group">
+    <label for="amount" class="col-sm-3 control-label">{$_L['Amount']}</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="amount" name="amount" value="{$t['amount']}">
+        </div>
+    </div>
+</div>
 
                         {if $t['type'] neq 'Transfer'}
                             <div class="form-group">
@@ -79,29 +83,159 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-3">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-9">
-                                <h4><a href="#" id="a_toggle">{$_L['Advanced']}</a> </h4>
-                            </div>
-                        </div>
-                        <div id="a_hide">
-                            {if $t['type'] eq 'Income'}
-                             
-                            {else}
-                               
-                            {/if}
-   
-                            <div class="form-group">
+
+      <div class="form-group">
                                 <label for="ref" class="col-sm-3 control-label">{$_L['Ref']}#</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="ref" name="ref" value="{$t['ref']}">
                                     <span class="help-block">{$_L['ref_example']}</span>
                                 </div>
                             </div>
+
+<div class="form-group">
+    <label for="obs" class="col-sm-3 control-label">Observações</label>
+    <div class="col-sm-9">
+        <textarea class="form-control" id="obs" name="obs" rows="4" onkeydown="handleEnter(event, this.form)">{$t['obs']}</textarea>
+    </div>
+</div>
+
+<script>
+function handleEnter(event, form) {
+    if (event.keyCode === 13 && !event.shiftKey) {  // Verifica se a tecla Enter foi pressionada sem a tecla Shift
+        event.preventDefault();  // Evita o comportamento padrão de inserir nova linha
+        form.submit();  // Envia o formulário
+    }
+}
+</script>
+
+
+                        
+                        <div id="a_hide">
+                            {if $t['type'] eq 'Income'}
+                             
+                            {else}
+                               
+                            {/if}                        
                         </div>
+
+
+       
+                            <div class="form-group">
+    <label for="nome_do_motorista" class="col-sm-3 control-label">Nome do Motorista</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="nome_do_motorista" name="nome_do_motorista"  value="{$t['nome_do_motorista']}">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="diaria_motorista" class="col-sm-3 control-label">Diária motorista</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="diaria_motorista" name="diaria_motorista" value="{$t['diaria_motorista']}">
+        </div>
+    </div>
+</div>
+
+
+         <div class="form-group">
+                            <label for="date" class="col-sm-3 control-label">Data de Saída</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control"  value="{$t['data_saida']}" name="data_saida" id="data_saida" data-auto-close="true">
+                               
+
+                            </div>
+                        </div>                    
+       
+
+         <div class="form-group">
+                            <label for="date" class="col-sm-3 control-label">Data de Chegada</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control"  value="{$t['data_chegada']}" name="data_chegada" id="data_chegada" data-auto-close="true">
+                               
+
+                            </div>
+                        </div>  
+
+
+
+
+<div class="form-group">
+    <label for="valor_litro" class="col-sm-3 control-label">Valor por Litro</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="valor_litro" name="valor_litro" value="{$t['valor_litro']}">
+        </div>
+    </div>
+</div>
+   <div class="form-group">
+    <label for="qtd_litro" class="col-sm-3 control-label">Qtd. Litros</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="qtd_litro" name="qtd_litro" value="{$t['qtd_litro']}">
+    </div>
+</div>
+<div class="form-group">
+    <label for="valor_total" class="col-sm-3 control-label">Valor Total</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="valor_total" name="valor_total" value="{$t['valor_total']}">
+        </div>
+    </div>
+</div>
+
+<!--Desativado -->
+<!--
+<div class="form-group">
+    <label for="km" class="col-sm-3 control-label">Km</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km" name="km" value="{$t['km']}">
+    </div>
+</div> -->
+
+
+
+<div class="form-group">
+    <label for="km_saida" class="col-sm-3 control-label">Km saída</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km_saida" name="km_saida" value="{$t['km_saida']}">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="km_chegada" class="col-sm-3 control-label">Km chegada</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km_chegada" name="km_chegada" value="{$t['km_chegada']}">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="pedagio" class="col-sm-3 control-label">Pedágio</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="pedagio" name="pedagio" value="{$t['pedagio']}">
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="outras_despesas" class="col-sm-3 control-label">Outras despesas</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="outras_despesas" name="outras_despesas" value="{$t['outras_despesas']}">
+        </div>
+    </div>
+</div>      
+
+
+
+  
+
+
+
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <input type="hidden" name="trid" id="trid" value="{$t['id']}">

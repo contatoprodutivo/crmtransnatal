@@ -120,6 +120,16 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label for="diaria_motorista" class="col-sm-3 control-label">Diária motorista</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="diaria_motorista" name="diaria_motorista" placeholder="Valor diária do motorista">
+        </div>
+    </div>
+</div>
+
                             
        
 
@@ -163,19 +173,49 @@
     </div>
 </div>
 
-<div class="form-group">
+<!--Desativado-->
+
+<!-- <div class="form-group">
     <label for="km" class="col-sm-3 control-label">Km</label>
     <div class="col-sm-9">
         <input type="text" class="form-control" id="km" name="km" placeholder="Quilometragem">
     </div>
+</div> -->
+
+
+<div class="form-group">
+    <label for="km_saida" class="col-sm-3 control-label">Km saída</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km_saida" name="km_saida" placeholder="Quilometragem saída">
+    </div>
 </div>
 
+<div class="form-group">
+    <label for="km_chegada" class="col-sm-3 control-label">Km chegada</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="km_chegada" name="km_chegada" placeholder="Quilometragem chegada">
+    </div>
+</div>
 
+<div class="form-group">
+    <label for="pedagio" class="col-sm-3 control-label">Pedágio</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="pedagio" name="pedagio" placeholder="Valor pedágio">
+        </div>
+    </div>
+</div>
 
-
-
-
-                            
+<div class="form-group">
+    <label for="outras_despesas" class="col-sm-3 control-label">Outras despesas</label>
+    <div class="col-sm-9">
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" id="outras_despesas" name="outras_despesas" placeholder="Valor outras despesas">
+        </div>
+    </div>
+</div>                            
                      
                            
                             

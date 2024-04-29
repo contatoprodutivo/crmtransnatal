@@ -70,6 +70,7 @@ $(document).ready(function () {
 
 
             date: $('#date').val(),
+            account: $('#account').val(),
 
             id: $('#trid').val(),
             cats: $('#cats').val(),
@@ -79,7 +80,24 @@ $(document).ready(function () {
             pmethod: $('#pmethod').val(),
             payee: $('#payee').val(),
             payer: $('#payer').val(),
-            ref: $('#ref').val()
+            amount: $('#amount').val(),
+            ref: $('#ref').val(),
+
+            qtd_litro: $('#qtd_litro').val(),
+            nome_do_motorista: $('#nome_do_motorista').val(),
+            data_saida: $('#data_saida').val(),
+            data_chegada: $('#data_chegada').val(),
+            valor_litro: $('#valor_litro').val(),
+            valor_total: $('#valor_total').val(),
+            obs: $('#obs').val(),
+            km: $('#km').val(),
+            // Novos campos
+            km_saida: $('#km_saida').val(),
+            km_chegada: $('#km_chegada').val(),
+            diaria_motorista: $('#diaria_motorista').val(),
+            pedagio: $('#pedagio').val(),
+            outras_despesas: $('#outras_despesas').val() 
+
 
         })
             .done(function (data) {

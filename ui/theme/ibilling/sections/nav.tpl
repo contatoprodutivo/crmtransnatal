@@ -1,5 +1,6 @@
 <ul class="nav" id="side-menu">
 
+
     <li class="nav-header">
         <div class="dropdown profile-element"> <span>
 
@@ -23,6 +24,9 @@
             </ul>
         </div>
     </li>
+    <!-- Adicionando um pequeno espaço entre os itens, se desejado -->
+   
+
 
     {$admin_extra_nav[0]}
 
@@ -30,6 +34,7 @@
        <li {if $_application_menu eq 'dashboard'}class="active"{/if}><a href="{$_url}{$_c['redirect_url']}/"><i class="fa fa-tachometer"></i> <span class="nav-label">{$_L['Dashboard']}</span></a></li>
           
     {/if}
+
 
 
 
@@ -126,8 +131,7 @@
 
 
 
-
-
+    
 
 
 

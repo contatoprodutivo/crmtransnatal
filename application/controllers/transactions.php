@@ -298,18 +298,25 @@ switch ($action) {
         $pmethod = _post('pmethod');
         $cat = _post('cats');
         $tags = $_POST['tags'];
+       
+
+        //novos campos
         $qtd_litro = _post('qtd_litro');
         $qtd_litro = str_replace(',', '.', _post('qtd_litro'));
         $qtd_litro = floatval($qtd_litro);
         $nome_do_motorista = _post('nome_do_motorista');
-
-        //novos campos
         $data_saida = _post('data_saida'); 
         $data_chegada = _post('data_chegada');
         $valor_litro = _post('valor_litro');
         $valor_total = _post('valor_total');
         $km = isset($_POST['km']) ? $_POST['km'] : '0';
         $obs = _post('obs');
+
+        $km_saida = _post('km_saida');
+        $km_chegada = _post('km_chegada');
+        $diaria_motorista = _post('diaria_motorista');
+        $pedagio = _post('pedagio');
+        $outras_despesas = _post('outras_despesas');
 
 
 
@@ -397,6 +404,12 @@ if (!empty($data_saida) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_saida)) {
             $d->km = $km;
             $d->obs = $obs;
 
+            $d->km_saida = $km_saida;
+            $d->km_chegada = $km_chegada;
+            $d->diaria_motorista = $diaria_motorista;
+            $d->pedagio = $pedagio;
+            $d->outras_despesas = $outras_despesas;
+
             $d->description = $description;
             // Build 4560
             $d->attachments = $attachments;
@@ -432,6 +445,113 @@ if (!empty($data_saida) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_saida)) {
             echo $tid;
         } else {
             echo $msg;
+        }
+        break;
+
+        case 'edit-post':
+            Event::trigger('transactions/edit-post/');
+        
+            $id = _post('id');
+            $d = ORM::for_table('sys_transactions')->find_one($id);
+            if ($d) {
+                // Atribuições diretas dos campos
+                $cat = _post('cats');
+                $account = _post('account');
+                $pmethod = _post('pmethod');
+                $ref = _post('ref');
+                $date = _post('date');
+                $payer = _post('payer', '0');  // Valor padrão se não definido
+                $amount = _post('amount');
+                $payee = _post('payee', '0');  // Valor padrão se não definido
+                $description = _post('description');
+                $tags = $_POST['tags'] ?? [];  // Assegurando que é um array, mesmo que vazio
+        
+                // Novos campos, com conversão de valores numéricos corrigida
+                $qtd_litro = floatval(str_replace(',', '.', _post('qtd_litro')));
+                $nome_do_motorista = _post('nome_do_motorista');
+                $data_saida = _post('data_saida');
+                $data_saida = empty($data_saida) ? null : $data_saida;  // Atribui null se estiver vazio
+                $data_chegada = _post('data_chegada');
+                $data_chegada = empty($data_chegada) ? null : $data_chegada;  // Atribui null se estiver vazio
+                $valor_litro = floatval(str_replace(',', '.', _post('valor_litro')));
+                $valor_total = floatval(str_replace(',', '.', _post('valor_total')));
+                $km = floatval(str_replace(',', '.', _post('km', '0')));  // Padrão para 0 se não definido
+                $obs = _post('obs');
+
+                $km_saida = _post('km_saida');
+                $km_chegada = _post('km_chegada');
+                $diaria_motorista = _post('diaria_motorista');
+                $pedagio = _post('pedagio');
+                $outras_despesas = _post('outras_despesas');
+        
+                $msg = '';
+        
+                // Verificações de validação
+                if (empty($description)) {
+                    $msg .= $_L['description_error'] . '<br>';
+                }
+        
+                // Processamento e salvamento
+                if (empty($msg)) {
+                    $d->category = $cat;
+                    $d->account = $account;
+                    $d->payerid = $payer;
+                    $d->amount = $amount;
+                    $d->payeeid = $payee;
+                    $d->method = $pmethod;
+                    $d->ref = $ref;
+                    $d->description = $description;
+                    $d->date = $date;
+                    $d->qtd_litro = $qtd_litro;
+                    $d->nome_do_motorista = $nome_do_motorista;
+                    $d->data_saida = $data_saida;
+                    $d->data_chegada = $data_chegada;
+                    $d->valor_litro = $valor_litro;
+                    $d->valor_total = $valor_total;
+                    $d->km = $km;
+                    $d->obs = $obs;
+
+                    $d->km_saida = $km_saida;
+                    $d->km_chegada = $km_chegada;
+                    $d->diaria_motorista = $diaria_motorista;
+                    $d->pedagio = $pedagio;
+                    $d->outras_despesas = $outras_despesas;
+        
+                    Tags::save($tags, $d['type']);
+                    $d->tags = Arr::arr_to_str($tags);
+        
+                    if ($d->save()) {
+                        _msglog('s', $_L['edit_successful']);
+                        echo $d->id();
+                    } else {
+                        echo 'Error saving transaction.';
+                    }
+                } else {
+                    echo $msg;
+                }
+            } else {
+                echo 'Transaction Not Found';
+            }
+        
+            break;
+        
+        
+    case 'delete-post':
+        Event::trigger('transactions/delete-post/');
+
+        if (!has_access($user->roleid, 'transactions', 'delete')) {
+            permissionDenied();
+        }
+
+        $id = _post('id');
+        if (Transaction::remove($id)) {
+            r2(
+                U . 'transactions/list',
+                's',
+                $_L['transaction_delete_successful']
+            );
+        } else {
+            r2(U . 'transactions/list', 'e', $_L['an_error_occured']);
         }
         break;
 
@@ -892,78 +1012,8 @@ if (!empty($data_saida) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data_saida)) {
         }
 
         break;
-    case 'edit-post':
-        Event::trigger('transactions/edit-post/');
 
-        $id = _post('id');
-        $d = ORM::for_table('sys_transactions')->find_one($id);
-        if ($d) {
-            $cat = _post('cats');
-            $pmethod = _post('pmethod');
-            $ref = _post('ref');
-            $date = _post('date');
-            $payer = _post('payer');
-            $payee = _post('payee');
-            $description = _post('description');
-            $msg = '';
-            if ($description == '') {
-                $msg .= $_L['description_error'] . '<br>';
-            }
-
-            if (!is_numeric($payer)) {
-                $payer = '0';
-            }
-
-            if (!is_numeric($payee)) {
-                $payee = '0';
-            }
-
-            $tags = $_POST['tags'];
-
-            if ($msg == '') {
-                //find the current balance for this account
-
-                Tags::save($tags, $d['type']);
-
-                $d->category = $cat;
-                $d->payerid = $payer;
-                $d->payeeid = $payee;
-                $d->method = $pmethod;
-                $d->qtd_litro = $qtd_litro;
-                $d->ref = $ref;
-                $d->tags = Arr::arr_to_str($tags);
-                $d->description = $description;
-                $d->date = $date;
-
-                $d->save();
-                _msglog('s', $_L['edit_successful']);
-                echo $d->id();
-            } else {
-                echo $msg;
-            }
-        } else {
-            echo 'Transaction Not Found';
-        }
-
-        break;
-    case 'delete-post':
-        Event::trigger('transactions/delete-post/');
-
-        if (!has_access($user->roleid, 'transactions', 'delete')) {
-            permissionDenied();
-        }
-
-        $id = _post('id');
-        if (Transaction::remove($id)) {
-            r2(
-                U . 'transactions/list',
-                's',
-                $_L['transaction_delete_successful']
-            );
-        } else {
-            r2(U . 'transactions/list', 'e', $_L['an_error_occured']);
-        }
-        break;
+        
 
     case 'post':
         break;

@@ -136,6 +136,7 @@ $(document).ready(function () {
             payee: $('#payee').val(),
             pmethod: $('#pmethod').val(),
             ref: $('#ref').val(), 
+            
             qtd_litro: $('#qtd_litro').val(),
             nome_do_motorista: $('#nome_do_motorista').val(),
             data_saida: $('#data_saida').val(),
@@ -143,7 +144,13 @@ $(document).ready(function () {
             valor_litro: $('#valor_litro').val(),
             valor_total: $('#valor_total').val(),
             obs: $('#obs').val(),
-            km: $('#km').val() 
+            km: $('#km').val(),
+            // Novos campos
+            km_saida: $('#km_saida').val(),
+            km_chegada: $('#km_chegada').val(),
+            diaria_motorista: $('#diaria_motorista').val(),
+            pedagio: $('#pedagio').val(),
+            outras_despesas: $('#outras_despesas').val()
 
         })
             .done(function (data) {
